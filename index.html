@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sterne-Manager | Ungerechtfertigte Google-Bewertungen löschen lassen</title>
+  <meta name="description" content="Wir haben uns darauf spezialisiert, ungerechtfertigte Google-Bewertungen zur Löschung zu melden – im Einklang mit den Google-Richtlinien. Kostenlose Erstberatung." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.sterne-manager.de/" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:url" content="https://www.sterne-manager.de/" />
+  <meta property="og:title" content="Sterne-Manager | Ungerechtfertigte Google-Bewertungen löschen lassen" />
+  <meta property="og:description" content="Wir haben uns darauf spezialisiert, ungerechtfertigte Google-Bewertungen zur Löschung zu melden – im Einklang mit den Google-Richtlinien." />
+  <meta property="og:image" content="sterne-manager-Logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon (Platzhalter – bitte später durch eigenes Favicon ersetzen) -->
+  <link rel="icon" type="image/png" href="Logo-Bild.jpg" />
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --white: #ffffff;
+      --navy: #142b57;
+      --navy-2: #1f3769;
+      --blue: #2f66ea;
+      --blue-2: #3a78ff;
+      --text: #17315c;
+      --muted: #65789b;
+      --border: #dde4f0;
+      --shadow: 0 12px 35px rgba(15, 37, 77, 0.08);
+      --radius: 22px;
+      --orange: #f8ae27;
+      --red: #ef4b4b;
+      --green: #18a957;
+      --section-space: 96px;
+      --container: 1200px;
+      --header-offset: 220px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    #problem,
+    #loesung,
+    #prozess,
+    #warum-wir,
+    #kontakt {
+      scroll-margin-top: var(--header-offset);
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: var(--section-space) 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    h1, h2, h3, h4, p { margin: 0; }
+
+    h1, h2 {
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 74px);
+      font-weight: 800;
+      color: #fff;
+    }
+
+    h2 {
+      font-size: clamp(34px, 4vw, 56px);
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    h3 {
+      font-size: 20px;
+      line-height: 1.3;
+      font-weight: 800;
+    }
+
+    .lead {
+      font-size: clamp(18px, 2vw, 22px);
+      color: #d9e3fb;
+      max-width: 700px;
+    }
+
+    .text-muted {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .accent-blue { color: var(--blue); }
+    .accent-orange { color: var(--orange); }
+    .accent-red { color: var(--red); }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 56px;
+      padding: 0 28px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      font-size: 18px;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(180deg, var(--blue-2), var(--blue));
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(47, 102, 234, 0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+      border-color: rgba(255,255,255,0.26);
+      backdrop-filter: blur(10px);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(20, 43, 87, 0.97), rgba(20, 43, 87, 0.93));
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 18px 0 22px;
+    }
+
+    .header-top-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      border-radius: 14px;
+      background: rgba(8, 14, 32, 0.18);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .header-top-link:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .header-wordmark {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+      background: rgba(8, 14, 32, 0.34);
+      border-radius: 12px;
+      padding: 6px 12px;
+    }
+
+    .header-logo-panel {
+      position: relative;
+      width: 100%;
+      max-width: 980px;
+      border-radius: 26px;
+      overflow: hidden;
+      padding: 28px 24px 28px;
+      background: linear-gradient(180deg, rgba(34, 62, 120, 0.94), rgba(27, 52, 103, 0.94));
+      box-shadow: 0 20px 44px rgba(8, 19, 46, 0.22);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .header-logo-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('Logo-Bild.jpg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 90% auto;
+      opacity: 0.28;
+      pointer-events: none;
+      transform: scale(1.05);
+    }
+
+    .header-logo-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(20,43,87,0.10), rgba(20,43,87,0.18));
+      pointer-events: none;
+    }
+
+    .menu {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .menu a {
+      color: rgba(255,255,255,0.96);
+      font-weight: 800;
+      padding: 12px 18px;
+      border-radius: 14px;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      text-align: center;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      min-width: 148px;
+    }
+
+    .menu a:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-1px);
+    }
+
+    .menu a.active {
+      background: rgba(255,255,255,0.16);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
+    }
+
+    .header-contact-row {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      max-width: 980px;
+      margin-top: -4px;
+    }
+
+    .menu-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 28px;
+      min-width: 220px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, var(--blue-2), var(--blue));
+      color: #fff;
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(47, 102, 234, 0.22);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .menu-cta:hover {
+      transform: translateY(-1px);
+    }
+
+    .menu-cta.active {
+      box-shadow: 0 12px 28px rgba(47, 102, 234, 0.28);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(17, 38, 78, 0.9), rgba(17, 38, 78, 0.92)),
+        url('https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: #fff;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 70% 30%, rgba(67, 121, 255, 0.22), transparent 28%),
+        radial-gradient(circle at 30% 50%, rgba(248,174,39,0.09), transparent 24%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
+      align-items: center;
+      padding: 50px 0 80px;
+    }
+
+    .hero-logo-small {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      width: fit-content;
+      margin-bottom: 26px;
+      border-radius: 18px;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.22);
+      background: rgba(10, 16, 34, 0.45);
+      padding: 14px 16px;
+    }
+
+    .hero-logo-small .hero-symbol {
+      width: 112px;
+      height: 70px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 12px;
+      background: #0d1227;
+    }
+
+    .hero-logo-small .hero-wordmark {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      border-radius: 10px;
+      background: rgba(8, 14, 32, 0.35);
+      padding: 4px 8px;
+    }
+
+    .hero-copy p { margin-top: 28px; }
+
+    .rating-card {
+      justify-self: center;
+      width: min(100%, 420px);
+      padding: 36px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.08));
+      box-shadow: 0 30px 60px rgba(7, 18, 41, 0.34);
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+
+    .rating-card::after {
+      content: "";
+      position: absolute;
+      right: -12px;
+      top: 24px;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(248,174,39,0.28), transparent 70%);
+      pointer-events: none;
+    }
+
+    .rating-score {
+      font-size: 88px;
+      font-weight: 800;
+      line-height: 1;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .stars {
+      text-align: center;
+      letter-spacing: 6px;
+      font-size: 38px;
+      color: var(--orange);
+      margin-bottom: 18px;
+    }
+
+    .rating-sub {
+      text-align: center;
+      font-size: 18px;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 26px;
+    }
+
+    .bars { display: grid; gap: 16px; }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 22px 22px 1fr;
+      gap: 12px;
+      align-items: center;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .bar-bg {
+      height: 14px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #f7b126, #e39b12);
+    }
+
+    .problem-grid,
+    .solution-grid,
+    .contact-grid,
+    .footer-grid {
+      display: grid;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .problem-grid,
+    .solution-grid,
+    .contact-grid {
+      grid-template-columns: 1.06fr 1fr;
+    }
+
+    .section-image {
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #e9eef8;
+      min-height: 420px;
+    }
+
+    .section-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cards-2x2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 28px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid rgba(20,43,87,0.06);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .card p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .icon-box {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      background: #eef3ff;
+    }
+
+    .icon-box svg { width: 28px; height: 28px; }
+    .icon-red svg { stroke: var(--red); }
+    .icon-blue svg { stroke: var(--blue); }
+    .icon-green svg { stroke: var(--green); }
+    .icon-orange svg { stroke: var(--orange); }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin: 34px 0 30px;
+    }
+
+    .feature-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 20px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      font-size: 17px;
+      font-weight: 700;
+      box-shadow: 0 8px 22px rgba(15, 37, 77, 0.04);
+    }
+
+    .feature-item svg {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 20px;
+    }
+
+    .info-box {
+      background: linear-gradient(180deg, #f7f3ea, #f4efe4);
+      border: 1px solid #cfd9f0;
+      border-radius: 18px;
+      padding: 22px 24px;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .info-box span { color: var(--blue); font-weight: 800; }
+
+    .process-head,
+    .why-head,
+    .contact-head {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 42px;
+    }
+
+    .process-head .text-muted,
+    .contact-head .text-muted { margin-top: 20px; }
+
+    .process-grid,
+    .why-grid {
+      display: grid;
+      gap: 28px;
+    }
+
+    .process-grid { grid-template-columns: repeat(3, 1fr); }
+    .why-grid { grid-template-columns: repeat(4, 1fr); }
+
+    .process-card,
+    .why-card {
+      position: relative;
+      background: var(--white);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(20,43,87,0.06);
+      min-height: 280px;
+    }
+
+    .process-number {
+      position: absolute;
+      right: 24px;
+      top: 18px;
+      font-size: 72px;
+      line-height: 1;
+      color: rgba(20,43,87,0.07);
+      font-weight: 800;
+    }
+
+    .process-card p,
+    .why-card p { margin-top: 12px; color: var(--muted); font-size: 18px; }
+
+    .why-card {
+      text-align: center;
+      min-height: auto;
+      padding-top: 36px;
+    }
+
+    .why-card .icon-box { margin-inline: auto; background: #edf2fe; }
+
+    .contact-wrap {
+      background: transparent;
+    }
+
+    .form-card,
+    .contact-side-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(20,43,87,0.06);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px 22px;
+      margin-top: 10px;
+    }
+
+    .field { display: flex; flex-direction: column; gap: 10px; }
+    .field.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid #d6dfef;
+      border-radius: 12px;
+      padding: 16px 16px;
+      font: inherit;
+      color: var(--text);
+      background: #fff;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(47,102,234,0.1);
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 18px;
+      min-height: 58px;
+      border: 0;
+      border-radius: 14px;
+      background: linear-gradient(180deg, var(--blue-2), var(--blue));
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(47, 102, 234, 0.24);
+    }
+
+    .privacy-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 15px;
+      margin-top: 16px;
+    }
+
+    .contact-items {
+      display: grid;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .contact-item .icon-box { margin: 0; }
+    .contact-item strong { display: block; font-size: 17px; }
+    .contact-item span,
+    .contact-item a { color: var(--muted); font-size: 18px; }
+
+    .contact-visual {
+      margin-top: 24px;
+      border-radius: 22px;
+      overflow: hidden;
+      min-height: 256px;
+      background: #eef3ff;
+    }
+
+    .cta-strip {
+      padding: 20px 0 0;
+    }
+
+    .cta-box {
+      margin-left: auto;
+      width: min(100%, 460px);
+      background: linear-gradient(180deg, #2a4f9e, #2f66ea);
+      color: #fff;
+      padding: 32px;
+      border-radius: 22px;
+      box-shadow: 0 18px 40px rgba(47,102,234,0.2);
+    }
+
+    .cta-box p {
+      margin-top: 10px;
+      font-size: 18px;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .footer {
+      margin-top: 56px;
+      background: var(--navy);
+      color: #dce6ff;
+      padding: 64px 0 30px;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1.3fr 1fr 1fr;
+      align-items: start;
+    }
+
+    .footer h4 {
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+
+    .footer-brand .footer-logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      background: rgba(8, 14, 32, 0.45);
+      padding: 10px 12px;
+      border-radius: 16px;
+    }
+
+    .footer-brand .footer-logo-symbol {
+      width: 74px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 10px;
+      background: #0d1227;
+    }
+
+    .footer-brand .footer-logo-wordmark {
+      width: min(100%, 220px);
+      height: auto;
+      border-radius: 10px;
+      background: rgba(8, 14, 32, 0.45);
+      padding: 4px 8px;
+    }
+
+    .footer-brand p,
+    .footer-links a,
+    .footer-contact a,
+    .footer-contact span {
+      color: rgba(220,230,255,0.78);
+      font-size: 17px;
+    }
+
+    .footer-links,
+    .footer-contact {
+      display: grid;
+      gap: 12px;
+    }
+
+    .footer-bottom {
+      margin-top: 34px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: rgba(220,230,255,0.6);
+    }
+
+    .footer-rating {
+      color: var(--orange);
+      letter-spacing: 3px;
+      font-weight: 800;
+    }
+
+    .legal-link {
+      cursor: pointer;
+    }
+
+    .legal-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(9, 18, 38, 0.72);
+      backdrop-filter: blur(6px);
+    }
+
+    .legal-modal.active {
+      display: flex;
+    }
+
+    .legal-modal-box {
+      width: min(100%, 920px);
+      max-height: 88vh;
+      overflow: auto;
+      background: #ffffff;
+      color: #17315c;
+      border-radius: 24px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.28);
+      padding: 32px;
+      position: relative;
+    }
+
+    .legal-modal-close {
+      position: sticky;
+      top: 0;
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 10px;
+      background: #edf2fe;
+      color: #17315c;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .legal-modal-content h2 {
+      font-size: 34px;
+      margin-bottom: 18px;
+    }
+
+    .legal-modal-content h3 {
+      font-size: 20px;
+      margin-top: 26px;
+      margin-bottom: 10px;
+    }
+
+    .legal-modal-content p,
+    .legal-modal-content li {
+      color: #4e6287;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .legal-modal-content ul {
+      padding-left: 20px;
+      margin: 10px 0 0;
+    }
+
+    .legal-modal-content a {
+      color: #2f66ea;
+      word-break: break-word;
+    }
+
+    .privacy-consent-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+      line-height: 1.5;
+    }
+
+    .privacy-consent-label input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 20px;
+      margin-top: 2px;
+      cursor: pointer;
+    }
+
+    .privacy-consent-label a {
+      color: var(--blue);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .problem-grid,
+      .solution-grid,
+      .contact-grid,
+      .footer-grid,
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid { grid-template-columns: 1fr; }
+      .cards-2x2,
+      .feature-grid,
+      .form-grid { grid-template-columns: 1fr; }
+      .cta-box { margin: 0; }
+      .hero { min-height: auto; }
+      .hero-grid { padding-top: 36px; }
+    }
+
+    @media (max-width: 780px) {
+      :root {
+        --section-space: 74px;
+        --header-offset: 250px;
+      }
+
+      .nav {
+        gap: 14px;
+        padding: 14px 0 18px;
+      }
+
+      .header-wordmark {
+        height: 32px;
+        max-width: calc(100vw - 64px);
+      }
+
+      .header-logo-panel {
+        padding: 18px 14px 18px;
+        border-radius: 20px;
+      }
+
+      .header-logo-panel::before {
+        background-size: 88% auto;
+        opacity: 0.30;
+      }
+
+      .menu {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        width: 100%;
+      }
+
+      .menu a {
+        min-width: 0;
+        width: 100%;
+        padding: 14px 10px;
+        font-size: 17px;
+      }
+
+      .header-contact-row {
+        width: 100%;
+        max-width: 980px;
+        margin-top: 10px;
+      }
+
+      .menu-cta {
+        width: 100%;
+        min-width: 0;
+      }
+
+      h1 { font-size: 44px; }
+      h2 { font-size: 34px; }
+
+      .lead,
+      .text-muted,
+      .card p,
+      .process-card p,
+      .why-card p,
+      .contact-item span,
+      .contact-item a {
+        font-size: 17px;
+      }
+
+      .rating-card { padding: 28px 22px; }
+      .rating-score { font-size: 70px; }
+      .stars { font-size: 30px; }
+
+      .process-card,
+      .why-card,
+      .card,
+      .form-card,
+      .contact-side-card { padding: 24px; }
+
+      .section-image { min-height: 280px; }
+
+      .legal-modal-box {
+        padding: 22px;
+        border-radius: 18px;
+      }
+
+      .legal-modal-content h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+  <header class="site-header">
+    <div class="container nav">
+      <a class="header-top-link" href="#top" aria-label="Zum Seitenanfang">
+        <img class="header-wordmark" src="Logo-Text.jpg" alt="sterne-manager" />
+      </a>
+
+      <div class="header-logo-panel">
+        <nav class="menu">
+          <a href="#problem" data-nav-link="problem">Problem</a>
+          <a href="#loesung" data-nav-link="loesung">Lösung</a>
+          <a href="#prozess" data-nav-link="prozess">Prozess</a>
+          <a href="#warum-wir" data-nav-link="warum-wir">Warum wir</a>
+        </nav>
+      </div>
+
+      <div class="header-contact-row">
+        <a class="menu-cta" href="#kontakt" data-nav-link="kontakt">Kontakt</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+         <div class="hero-logo-small" aria-label="Sterne-Manager Logo">
+  <img class="hero-full-logo" src="sterne-manager-Logo.png" alt="sterne-manager Logo" />
+</div>
+          <h1>Ungerechtfertigte<br>Google-Bewertungen?<br><span class="accent-orange">Wir helfen.</span></h1>
+          <p class="lead">Wir haben uns darauf spezialisiert, ungerechtfertigte Google-Bewertungen zur Löschung zu melden – im Einklang mit den Google-Richtlinien. So unterstützen wir Sie dabei, Ihre Online-Reputation zu stärken.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#kontakt">Kostenlose Erstberatung</a>
+            <a class="btn btn-secondary" href="#prozess">So funktioniert's</a>
+          </div>
+        </div>
+
+        <div class="rating-card">
+          <div class="rating-score">4.8</div>
+          <div class="stars">★★★★☆</div>
+          <div class="rating-sub">Beispielhafte Darstellung</div>
+          <div class="bars">
+            <div class="bar-row"><span>5</span><span>★</span><div class="bar-bg"><div class="bar-fill" style="width:78%"></div></div></div>
+            <div class="bar-row"><span>4</span><span>★</span><div class="bar-bg"><div class="bar-fill" style="width:20%"></div></div></div>
+            <div class="bar-row"><span>3</span><span>★</span><div class="bar-bg"><div class="bar-fill" style="width:7%"></div></div></div>
+            <div class="bar-row"><span>2</span><span>★</span><div class="bar-bg"><div class="bar-fill" style="width:0%"></div></div></div>
+            <div class="bar-row"><span>1</span><span>★</span><div class="bar-bg"><div class="bar-fill" style="width:0%"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem" class="section">
+      <div class="container problem-grid">
+        <div class="section-image">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Negative Bewertung mit einem Stern" />
+        </div>
+
+        <div>
+          <span class="eyebrow" style="color:#ef4b4b">Das Problem</span>
+          <h2>Ungerechtfertigte Bewertungen schaden<br> Ihrem <span class="accent-red">Geschäftserfolg</span></h2>
+          <div class="cards-2x2">
+            <article class="card">
+              <div class="icon-box icon-red">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>
+              </div>
+              <h3>Ungerechtfertigte Bewertungen</h3>
+              <p>Ungerechtfertigte 1-Stern-Bewertungen von Fake-Accounts oder Personen, die nie Kunde waren, schaden Ihrem Ruf – ohne dass Sie etwas dafür können.</p>
+            </article>
+            <article class="card">
+              <div class="icon-box icon-red">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 7 6 6 4-4 8 8"></path><path d="M21 10v7h-7"></path></svg>
+              </div>
+              <h3>Umsatzeinbußen</h3>
+              <p>Studien deuten darauf hin: Schon ein halber Stern weniger kann den Umsatz spürbar beeinflussen. Jede ungerechtfertigte Bewertung kann Sie damit Kunden kosten.</p>
+            </article>
+            <article class="card">
+              <div class="icon-box icon-red">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <h3>Vertrauensverlust</h3>
+              <p>Ein Großteil der Kunden liest Online-Bewertungen vor einem Kauf. Negative Bewertungen schrecken potenzielle Kunden ab, bevor sie Sie überhaupt kontaktieren.</p>
+            </article>
+            <article class="card">
+              <div class="icon-box icon-red">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <h3>Schlechteres Google-Ranking</h3>
+              <p>Google berücksichtigt Bewertungen im lokalen Ranking. Weniger Sterne bedeuten schlechtere Sichtbarkeit und weniger Neukunden über die Google-Suche.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="loesung" class="section">
+      <div class="container solution-grid">
+        <div>
+          <span class="eyebrow">Unsere Lösung</span>
+          <h2>Wir melden <span class="accent-blue">ungerechtfertigte Bewertungen</span> – im Einklang mit den Google-Richtlinien</h2>
+          <p class="text-muted" style="margin-top:28px; max-width:720px;">Wir haben uns darauf spezialisiert, ungerechtfertigte Google-Bewertungen zur Löschung zu melden. Dazu prüfen wir Ihre Bewertungen auf Auffälligkeiten, die mit den Google-Richtlinien in Konflikt stehen können – etwa offensichtliche Fake-Bewertungen, Spam, beleidigende Inhalte oder Bewertungen von Personen, die nie Kunde waren. Diese melden wir anschließend professionell bei Google zur Prüfung.</p>
+
+          <div class="feature-grid">
+            <div class="feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#2f66ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              <span>Prüfung nach Google-Richtlinien</span>
+            </div>
+            <div class="feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#18a957" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path><circle cx="12" cy="12" r="10"></circle></svg>
+              <span>Professionelle Meldung bei Google</span>
+            </div>
+            <div class="feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#f8ae27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span>Stärkere Online-Reputation</span>
+            </div>
+            <div class="feature-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#2f66ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 6-6 6-4-4-6 6"></path><path d="M15 6h3v3"></path></svg>
+              <span>Mehr Vertrauen bei Ihren Kunden</span>
+            </div>
+          </div>
+
+          <div class="info-box">💡 Wussten Sie? Ein <span>erheblicher Teil</span> aller Google-Bewertungen weist Auffälligkeiten auf, die einer Prüfung wert sind.</div>
+        </div>
+
+        <div class="section-image">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80" alt="Bessere Sternebewertungen" />
+        </div>
+      </div>
+    </section>
+
+    <section id="prozess" class="section">
+      <div class="container">
+        <div class="process-head">
+          <span class="eyebrow">Unser Prozess</span>
+          <h2>So funktioniert's – in <span class="accent-blue">3 einfachen Schritten</span></h2>
+          <p class="text-muted">Unser bewährter Prozess macht es Ihnen so einfach wie möglich. Sie lehnen sich zurück – wir kümmern uns um den Rest.</p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card">
+            <span class="process-number">01</span>
+            <div class="icon-box icon-blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+            </div>
+            <h3>Analyse</h3>
+            <p>Wir analysieren alle Ihre Google-Bewertungen und identifizieren diejenigen, die gegen die Google-Richtlinien verstoßen. Sie erhalten einen detaillierten Bericht.</p>
+          </article>
+
+          <article class="process-card">
+            <span class="process-number">02</span>
+            <div class="icon-box icon-orange">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="m9 15 2 2 4-4"></path></svg>
+            </div>
+            <h3>Prüfung & Meldung</h3>
+            <p>Jede identifizierte Bewertung wird sorgfältig geprüft und mit einer fundierten Begründung bei Google zur Entfernung gemeldet – alles richtlinienkonform.</p>
+          </article>
+
+          <article class="process-card">
+            <span class="process-number">03</span>
+            <div class="icon-box icon-green">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-1.68 3.2-1.5 4.5 1.3.18 3.24 0 4.5-1.5 1.5-1.77 1.5-4.5 1.5-4.5s-2.73 0-4.5 1.5Z"></path><path d="M12 15c-2-2-2-7 2-11 5 0 7 5 7 5-4 4-9 4-11 2Z"></path><path d="M15 9l3 3"></path></svg>
+            </div>
+            <h3>Ergebnis</h3>
+            <p>Google prüft unsere Meldungen. Bei einem positiven Ergebnis werden die betreffenden Bewertungen entfernt. Sie erhalten von uns einen transparenten Abschlussbericht zu jedem gemeldeten Fall.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="warum-wir" class="section">
+      <div class="container">
+        <div class="why-head">
+          <span class="eyebrow">Warum Sterne-Manager</span>
+          <h2>Darauf können Sie sich <span class="accent-blue">verlassen</span></h2>
+        </div>
+
+        <div class="why-grid">
+          <article class="why-card">
+            <div class="icon-box icon-blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M7 12h10"></path><path d="M10 18h4"></path><path d="M12 2v20"></path></svg>
+            </div>
+            <h3>Im Einklang mit den Google-Richtlinien</h3>
+            <p>Wir arbeiten ausschließlich im Rahmen der offiziellen Google-Richtlinien. Keine Tricks, keine Grauzonen – unsere Meldungen erfolgen anhand klar nachvollziehbarer Kriterien.</p>
+          </article>
+
+          <article class="why-card">
+            <div class="icon-box icon-blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            </div>
+            <h3>Diskrete & professionelle Abwicklung</h3>
+            <p>Ihr Anliegen wird vertraulich behandelt. Wir arbeiten im Hintergrund, damit Sie sich auf Ihr Kerngeschäft konzentrieren können.</p>
+          </article>
+
+          <article class="why-card">
+            <div class="icon-box icon-blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <h3>Transparente Kommunikation</h3>
+            <p>Sie werden über jeden Schritt informiert. Wir erklären Ihnen genau, welche Bewertungen gemeldet werden können und warum – ohne versteckte Kosten.</p>
+          </article>
+
+          <article class="why-card">
+            <div class="icon-box icon-blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 21-1.45-1.32C5.4 15.36 2 12.28 2 8.5A4.5 4.5 0 0 1 6.5 4c1.74 0 3.41.81 4.5 2.09A6 6 0 0 1 17.5 4 4.5 4.5 0 0 1 22 8.5c0 3.78-3.4 6.86-8.55 11.18Z"></path></svg>
+            </div>
+            <h3>Ehrliche Beratung</h3>
+            <p>Wir machen keine unrealistischen Versprechen. Wenn eine Bewertung berechtigt ist, sagen wir Ihnen das offen. Unser Ziel ist Ihr langfristiger Erfolg.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="section contact-wrap">
+      <div class="container">
+        <div class="contact-head">
+          <span class="eyebrow">Kontakt</span>
+          <h2>Jetzt <span class="accent-blue">kostenlos beraten</span> lassen</h2>
+          <p class="text-muted">Schreiben Sie uns und wir melden uns innerhalb von 24 Stunden bei Ihnen zurück. Die Erstberatung ist selbstverständlich kostenlos.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="form-card">
+            <form action="mailto:info@sterne-manager.de" method="post" enctype="text/plain">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="name">Ihr Name *</label>
+                  <input id="name" name="Name" type="text" placeholder="Max Mustermann" required>
+                </div>
+                <div class="field">
+                  <label for="firma">Firma</label>
+                  <input id="firma" name="Firma" type="text" placeholder="Musterfirma GmbH">
+                </div>
+                <div class="field">
+                  <label for="email">E-Mail *</label>
+                  <input id="email" name="E-Mail" type="email" placeholder="max@musterfirma.de" required>
+                </div>
+                <div class="field">
+                  <label for="telefon">Telefon</label>
+                  <input id="telefon" name="Telefon" type="tel" placeholder="+49 123 456789">
+                </div>
+                <div class="field full">
+                  <label for="nachricht">Ihre Nachricht *</label>
+                  <textarea id="nachricht" name="Nachricht" placeholder="Beschreiben Sie kurz Ihr Anliegen – z.B. wie viele Bewertungen Sie haben und welche Ihnen Sorgen bereiten..." required></textarea>
+                </div>
+                <div class="field full privacy-consent">
+                  <label class="privacy-consent-label">
+                    <input id="datenschutz" name="Datenschutz" type="checkbox" required>
+                    <span>Ich habe die <a href="#" class="legal-link" data-legal-open="datenschutz">Datenschutzerklärung</a> zur Kenntnis genommen und bin damit einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage verarbeitet werden. *</span>
+                  </label>
+                </div>
+              </div>
+              <button class="submit-btn" type="submit">✈︎ Nachricht senden</button>
+              <div class="privacy-note">Pflichtfelder sind mit * gekennzeichnet. Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet und nicht an Dritte weitergegeben.</div>
+            </form>
+          </div>
+
+          <div>
+            <div class="contact-side-card">
+              <h3 style="font-size:22px;">Kontaktdaten</h3>
+              <div class="contact-items">
+                <div class="contact-item">
+                  <div class="icon-box icon-blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"></path><path d="m22 6-10 7L2 6"></path></svg>
+                  </div>
+                  <div>
+                    <strong>E-Mail</strong>
+                    <a href="mailto:info@sterne-manager.de">info@sterne-manager.de</a>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <div class="icon-box icon-blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  </div>
+                  <div>
+                    <strong>Firma</strong>
+                    <span>Richter Consulting &amp; Services</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-visual">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Beratungsgespräch" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-strip">
+      <div class="container">
+        <div class="cta-box">
+          <h3 style="font-size:22px; color:#fff;">Kostenlose Erstberatung</h3>
+          <p>Wir analysieren Ihre aktuelle Bewertungssituation und zeigen Ihnen, welche Bewertungen entfernt werden können – unverbindlich und kostenlos.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-wrap">
+            <img class="footer-logo-symbol" src="Logo-Bild.jpg" alt="Sterne-Manager Symbol">
+            <img class="footer-logo-wordmark" src="Logo-Text.jpg" alt="sterne-manager">
+          </div>
+          <p>Wir helfen Unternehmen, ungerechtfertigte Google-Bewertungen zur Löschung zu melden – im Einklang mit den Google-Richtlinien.</p>
+          <p style="margin-top:12px; opacity:.8;">Ein Service von Richter Consulting &amp; Services</p>
+        </div>
+
+        <div>
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="#problem">Das Problem</a>
+            <a href="#loesung">Unsere Lösung</a>
+            <a href="#prozess">So funktioniert's</a>
+            <a href="#warum-wir">Warum wir</a>
+            <a href="#kontakt">Kontakt</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Rechtliches</h4>
+          <div class="footer-contact">
+            <a href="#" class="legal-link" data-legal-open="impressum">Impressum</a>
+            <a href="#" class="legal-link" data-legal-open="datenschutz">Datenschutzerklärung</a>
+            <h4 style="margin-top:20px; margin-bottom:4px;">Kontakt</h4>
+            <a href="mailto:info@sterne-manager.de">info@sterne-manager.de</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Richter Consulting &amp; Services. Alle Rechte vorbehalten.</div>
+        <div><span class="footer-rating">★★★★★</span> &nbsp; sterne-manager.de</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="legal-modal" id="legal-modal-impressum" aria-hidden="true">
+    <div class="legal-modal-box" role="dialog" aria-modal="true" aria-labelledby="impressum-title">
+      <button class="legal-modal-close" type="button" data-legal-close aria-label="Popup schließen">×</button>
+      <div class="legal-modal-content">
+        <h2 id="impressum-title">Impressum</h2>
+
+        <h3>Angaben gemäß § 5 DDG</h3>
+        <p>
+          Richter Consulting &amp; Services<br>
+          Inhaber: Ingo Richter<br>
+          Am Spitzberg 1<br>
+          01728 Bannewitz<br>
+          Deutschland
+        </p>
+
+        <h3>Kontakt</h3>
+        <p>
+          E-Mail: <a href="mailto:info@sterne-manager.de">info@sterne-manager.de</a><br>
+          Telefon: <a href="tel:+4915222122653">+49 (0)152 22122653</a>
+        </p>
+
+        <h3>Register / Gewerbe</h3>
+        <p>
+          Einzelunternehmen<br>
+          Gewerberegister der Gemeinde Bannewitz<br>
+          Registernummer: 26-24
+        </p>
+
+        <h3>Umsatzsteuer</h3>
+        <p>
+          Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>
+          beantragt
+        </p>
+
+        <h3>Hinweis zur Kleinunternehmerregelung</h3>
+        <p>
+          Gemäß § 19 UStG wird in Rechnungen keine Umsatzsteuer ausgewiesen, sofern die Voraussetzungen
+          der Kleinunternehmerregelung erfüllt sind.
+        </p>
+
+        <h3>Streitschlichtung – Verbraucherstreitbeilegung</h3>
+        <p>
+          Plattform der EU-Kommission zur Online-Streitbeilegung (OS):
+          <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr</a>.
+        </p>
+        <p>
+          Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+          Verbraucherschlichtungsstelle teilzunehmen.
+        </p>
+
+        <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
+        <p>
+          Ingo Richter<br>
+          Am Spitzberg 1<br>
+          01728 Bannewitz
+        </p>
+
+        <h3>Haftung für Inhalte</h3>
+        <p>
+          Als Diensteanbieter sind wir gemäß den allgemeinen Gesetzen für eigene Inhalte auf diesen Seiten verantwortlich.
+          Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen
+          zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von
+          Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.
+        </p>
+
+        <h3>Haftung für Links</h3>
+        <p>
+          Sofern diese Website Links zu externen Websites Dritter enthält, haben wir auf deren Inhalte keinen Einfluss.
+          Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten
+          ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
+        </p>
+
+        <h3>Urheberrecht</h3>
+        <p>
+          Die durch den Seitenbetreiber erstellten Inhalte und Werke auf dieser Website unterliegen dem deutschen Urheberrecht.
+          Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen
+          der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="legal-modal" id="legal-modal-datenschutz" aria-hidden="true">
+    <div class="legal-modal-box" role="dialog" aria-modal="true" aria-labelledby="datenschutz-title">
+      <button class="legal-modal-close" type="button" data-legal-close aria-label="Popup schließen">×</button>
+      <div class="legal-modal-content">
+        <h2 id="datenschutz-title">Datenschutzerklärung</h2>
+
+        <h3>1. Verantwortlicher</h3>
+        <p>
+          Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br><br>
+          Richter Consulting &amp; Services<br>
+          Inhaber: Ingo Richter<br>
+          Am Spitzberg 1<br>
+          01728 Bannewitz<br>
+          E-Mail: <a href="mailto:info@sterne-manager.de">info@sterne-manager.de</a><br>
+          Telefon: <a href="tel:+4915222122653">+49 (0)152 22122653</a>
+        </p>
+
+        <h3>2. Hosting</h3>
+        <p>
+          Diese Website wird bei der STRATO AG, Otto-Ostrowski-Str. 7, 10249 Berlin, gehostet
+          (im Folgenden „STRATO"). Beim Aufruf der Website verarbeitet STRATO technisch erforderliche
+          Zugriffsdaten, insbesondere IP-Adresse, Datum und Uhrzeit der Anfrage, angeforderte Inhalte,
+          Browsertyp und Betriebssystem. Die Verarbeitung erfolgt zum Zweck der Bereitstellung, Stabilität
+          und Sicherheit der Website.
+        </p>
+        <p>
+          Mit STRATO besteht ein Vertrag zur Auftragsverarbeitung gemäß Art. 28 DSGVO, der gewährleistet,
+          dass STRATO personenbezogene Daten ausschließlich nach unseren Weisungen und im Einklang mit
+          der DSGVO verarbeitet.
+        </p>
+        <p>
+          Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in der sicheren
+          und zuverlässigen Bereitstellung unseres Online-Angebots.
+        </p>
+        <p>
+          Weitere Informationen zum Datenschutz bei STRATO finden Sie unter:
+          <a href="https://www.strato.de/datenschutz/" target="_blank" rel="noopener noreferrer">https://www.strato.de/datenschutz/</a>.
+        </p>
+
+        <h3>3. Server-Logfiles</h3>
+        <p>
+          Der Provider dieser Website erhebt und speichert automatisch Informationen in sogenannten Server-Logfiles,
+          die Ihr Browser automatisch übermittelt. Dies sind insbesondere:
+        </p>
+        <ul>
+          <li>IP-Adresse</li>
+          <li>Datum und Uhrzeit der Serveranfrage</li>
+          <li>Browsertyp und Browserversion</li>
+          <li>verwendetes Betriebssystem</li>
+          <li>Referrer-URL</li>
+          <li>Hostname des zugreifenden Rechners</li>
+        </ul>
+        <p>
+          Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.
+        </p>
+
+        <h3>4. Kontaktaufnahme per E-Mail</h3>
+        <p>
+          Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir die von Ihnen übermittelten personenbezogenen Daten,
+          insbesondere Ihren Namen, Ihre E-Mail-Adresse und den Inhalt Ihrer Nachricht, zum Zweck der Bearbeitung Ihrer Anfrage.
+        </p>
+        <p>
+          Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage auf die Durchführung vorvertraglicher Maßnahmen
+          gerichtet ist, oder Art. 6 Abs. 1 lit. f DSGVO bei sonstigen Anfragen. Unser berechtigtes Interesse liegt in der
+          effizienten Bearbeitung an uns gerichteter Anfragen.
+        </p>
+
+        <h3>5. Kontaktformular</h3>
+        <p>
+          Auf dieser Website ist ein Kontaktformular eingebunden. Die von Ihnen dort eingegebenen Daten werden nicht auf
+          dem Webserver in einer eigenen Formular-Datenbank verarbeitet, sondern nach dem Absenden an Ihr lokales E-Mail-Programm
+          übergeben, um eine Nachricht an uns zu erstellen.
+        </p>
+        <p>
+          Rechtsgrundlage für die Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO sowie Art. 6 Abs. 1 lit. f DSGVO.
+        </p>
+
+        <h3>6. Externe Bildquellen</h3>
+        <p>
+          Auf dieser Website werden teilweise Bilder von externen Quellen eingebunden. Beim Laden solcher Inhalte kann es technisch
+          erforderlich sein, dass Ihre IP-Adresse, Browserinformationen sowie weitere Verbindungsdaten an den jeweiligen externen
+          Dienst übermittelt werden, damit die Inhalte in Ihrem Browser dargestellt werden können.
+        </p>
+        <p>
+          Auf dieser Website betrifft dies insbesondere Bildinhalte, die über <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>
+          bzw. technisch über die Domain <a href="https://images.unsplash.com" target="_blank" rel="noopener noreferrer">images.unsplash.com</a> ausgeliefert werden.
+        </p>
+        <p>
+          Die Einbindung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in der
+          ansprechenden Darstellung und wirtschaftlichen Bereitstellung unseres Online-Angebots.
+        </p>
+
+        <h3>7. Cookies</h3>
+        <p>
+          Diese Website verwendet nach aktuellem Stand keine Cookies zu Analyse-, Tracking- oder Marketingzwecken.
+          Sofern Ihr Hosting-Anbieter oder technische Systemkomponenten zwingend erforderliche Cookies einsetzen,
+          erfolgt dies auf Grundlage von § 25 Abs. 2 TDDDG sowie Art. 6 Abs. 1 lit. f DSGVO.
+        </p>
+
+        <h3>8. Keine Analyse- oder Tracking-Tools</h3>
+        <p>
+          Auf dieser Website werden keine externen Tracking- oder Analyse-Tools eingesetzt. Insbesondere werden
+          keine Dienste wie Google Analytics, Meta Pixel oder vergleichbare Technologien verwendet.
+        </p>
+
+        <h3>9. Schriften</h3>
+        <p>
+          Verwendete Schriften werden lokal auf dem Hosting-System bereitgestellt und nicht von externen Drittanbietern nachgeladen.
+        </p>
+
+        <h3>10. Keine weiteren externen Inhalte</h3>
+        <p>
+          Abgesehen von den ausdrücklich genannten externen Bildquellen werden nach aktuellem Stand keine externen Kartendienste,
+          keine eingebetteten Videos, kein reCAPTCHA und keine extern geladenen Google Fonts eingesetzt.
+        </p>
+
+        <h3>11. Ihre Rechte</h3>
+        <p>
+          Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft
+          über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger sowie den Zweck der Datenverarbeitung.
+          Außerdem haben Sie gegebenenfalls ein Recht auf Berichtigung, Löschung, Einschränkung der Verarbeitung und Widerspruch.
+        </p>
+        <p>
+          Darüber hinaus steht Ihnen ein Beschwerderecht bei einer zuständigen Datenschutz-Aufsichtsbehörde zu.
+        </p>
+
+        <h3>12. Speicherdauer</h3>
+        <p>
+          Personenbezogene Daten werden nur so lange gespeichert, wie dies für die Bearbeitung Ihrer Anfrage erforderlich ist
+          oder gesetzliche Aufbewahrungspflichten bestehen.
+        </p>
+
+        <h3>13. SSL- bzw. TLS-Verschlüsselung</h3>
+        <p>
+          Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL- bzw.
+          TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers mit
+          „https://“ beginnt.
+        </p>
+
+        <h3>14. Stand</h3>
+        <p>
+          Stand dieser Datenschutzerklärung: April 2026
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const openButtons = document.querySelectorAll('[data-legal-open]');
+      const closeButtons = document.querySelectorAll('[data-legal-close]');
+      const modals = document.querySelectorAll('.legal-modal');
+      const navLinks = document.querySelectorAll('[data-nav-link]');
+      const sections = [
+        document.getElementById('problem'),
+        document.getElementById('loesung'),
+        document.getElementById('prozess'),
+        document.getElementById('warum-wir'),
+        document.getElementById('kontakt')
+      ].filter(Boolean);
+
+      function closeAllModals() {
+        modals.forEach(modal => {
+          modal.classList.remove('active');
+          modal.setAttribute('aria-hidden', 'true');
+        });
+        document.body.style.overflow = '';
+      }
+
+      openButtons.forEach(button => {
+        button.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = this.getAttribute('data-legal-open');
+          const modal = document.getElementById('legal-modal-' + target);
+          if (modal) {
+            closeAllModals();
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      });
+
+      closeButtons.forEach(button => {
+        button.addEventListener('click', closeAllModals);
+      });
+
+      modals.forEach(modal => {
+        modal.addEventListener('click', function (e) {
+          if (e.target === modal) {
+            closeAllModals();
+          }
+        });
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          closeAllModals();
+        }
+      });
+
+      function setActiveNav(id) {
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('data-nav-link') === id);
+        });
+      }
+
+      function updateActiveNav() {
+        const scrollPosition = window.scrollY + 220;
+        let currentId = 'problem';
+
+        sections.forEach(section => {
+          if (scrollPosition >= section.offsetTop) {
+            currentId = section.id;
+          }
+        });
+
+        setActiveNav(currentId);
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+          const id = this.getAttribute('data-nav-link');
+          setActiveNav(id);
+        });
+      });
+
+      window.addEventListener('scroll', updateActiveNav, { passive: true });
+      window.addEventListener('load', updateActiveNav);
+      window.addEventListener('resize', updateActiveNav);
+    })();
+  </script>
+</body>
+</html>
