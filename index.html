@@ -1214,13 +1214,13 @@
 
         <div class="contact-grid">
           <div class="form-card">
-            <form action="https://formsubmit.co/info@sterne-manager.de" method="POST">
-              <!-- FormSubmit-Konfiguration -->
-              <input type="hidden" name="_subject" value="Neue Anfrage über sterne-manager.de">
-              <input type="hidden" name="_template" value="table">
-              <input type="hidden" name="_captcha" value="true">
+            <form action="https://api.web3forms.com/submit" method="POST">
+              <!-- Web3Forms-Konfiguration -->
+              <input type="hidden" name="access_key" value="62d934c4-db51-422a-b185-8ed86e6a241e">
+              <input type="hidden" name="subject" value="Neue Anfrage über sterne-manager.de">
+              <input type="hidden" name="from_name" value="sterne-manager.de Kontaktformular">
               <!-- Honeypot-Feld gegen Spam-Bots (für Menschen unsichtbar) -->
-              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+              <input type="checkbox" name="botcheck" style="display:none" tabindex="-1">
               <div class="form-grid">
                 <div class="field">
                   <label for="name">Ihr Name *</label>
@@ -1250,7 +1250,7 @@
                 </div>
               </div>
               <button class="submit-btn" type="submit">✈︎ Nachricht senden</button>
-              <div class="privacy-note">Pflichtfelder sind mit * gekennzeichnet. Ihre Anfrage wird über den Dienst FormSubmit an uns weitergeleitet. Details siehe <a href="#" class="legal-link" data-legal-open="datenschutz">Datenschutzerklärung</a>.</div>
+              <div class="privacy-note">Pflichtfelder sind mit * gekennzeichnet. Ihre Anfrage wird über den Dienst Web3Forms an uns weitergeleitet. Details siehe <a href="#" class="legal-link" data-legal-open="datenschutz">Datenschutzerklärung</a>.</div>
             </form>
           </div>
 
@@ -1487,13 +1487,13 @@
           effizienten Bearbeitung an uns gerichteter Anfragen.
         </p>
 
-        <h3>5. Kontaktformular (Versand über FormSubmit)</h3>
+        <h3>5. Kontaktformular (Versand über Web3Forms)</h3>
         <p>
-          Auf dieser Website ist ein Kontaktformular eingebunden. Beim Absenden des Formulars werden die von Ihnen eingegebenen
-          Daten (insbesondere Name, Firma, E-Mail-Adresse, Telefonnummer und Nachricht) an den Dienst FormSubmit
-          (FormSubmit, Betreiber: Hashpage Inc., USA) übermittelt und von dort als E-Mail an uns weitergeleitet.
-          FormSubmit speichert die Daten nach eigener Aussage nicht dauerhaft, sondern verarbeitet sie ausschließlich
-          zur Weiterleitung an die hinterlegte E-Mail-Adresse.
+          Auf dieser Website ist ein Kontaktformular eingebunden. Beim Absenden des Formulars werden die von Ihnen
+          eingegebenen Daten (insbesondere Name, Firma, E-Mail-Adresse, Telefonnummer und Nachricht) an den Dienst
+          Web3Forms (<a href="https://web3forms.com" target="_blank" rel="noopener noreferrer">https://web3forms.com</a>)
+          übermittelt und von dort als E-Mail an uns weitergeleitet. Web3Forms verarbeitet die Daten ausschließlich zur
+          Weiterleitung an die hinterlegte E-Mail-Adresse und speichert sie nach eigener Aussage nicht dauerhaft.
         </p>
         <p>
           Rechtsgrundlage für die Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO (Durchführung vorvertraglicher Maßnahmen)
@@ -1502,14 +1502,15 @@
           Grundlage von Art. 6 Abs. 1 lit. a DSGVO.
         </p>
         <p>
-          Da FormSubmit in den USA betrieben wird, erfolgt mit dem Absenden des Formulars eine Datenübermittlung in ein
-          Drittland. Die Übermittlung stützt sich auf Standardvertragsklauseln gemäß Art. 46 Abs. 2 lit. c DSGVO.
-          Weitere Informationen finden Sie in den Datenschutzhinweisen von FormSubmit unter
-          <a href="https://formsubmit.co/legal/privacy-policy" target="_blank" rel="noopener noreferrer">https://formsubmit.co/legal/privacy-policy</a>.
+          Web3Forms bietet auf Anfrage einen Auftragsverarbeitungsvertrag (AVV) nach Art. 28 DSGVO an. Sollte im Zuge
+          der Verarbeitung eine Datenübermittlung in ein Drittland erfolgen, stützt diese sich auf Standardvertragsklauseln
+          gemäß Art. 46 Abs. 2 lit. c DSGVO. Weitere Informationen finden Sie in den Datenschutzhinweisen von Web3Forms
+          unter
+          <a href="https://web3forms.com/privacy-policy" target="_blank" rel="noopener noreferrer">https://web3forms.com/privacy-policy</a>.
         </p>
         <p>
           Alternativ können Sie uns jederzeit direkt per E-Mail an
-          <a href="mailto:info@sterne-manager.de">info@sterne-manager.de</a> erreichen, ohne dass Daten an FormSubmit
+          <a href="mailto:info@sterne-manager.de">info@sterne-manager.de</a> erreichen, ohne dass Daten an Web3Forms
           übermittelt werden.
         </p>
 
