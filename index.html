@@ -63,8 +63,210 @@
     #loesung,
     #prozess,
     #warum-wir,
+    #score-rechner,
     #kontakt {
       scroll-margin-top: var(--header-offset);
+    }
+
+    /* ===== Score-Rechner Widget ===== */
+    .score-head {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 42px;
+    }
+
+    .score-head .text-muted { margin-top: 18px; }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .score-card {
+      background: var(--white);
+      border: 1px solid rgba(20,43,87,0.06);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .score-card h3 {
+      margin: 0 0 6px;
+      font-size: 20px;
+      color: var(--text);
+    }
+
+    .score-card-sub {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .star-inputs {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .star-row {
+      display: grid;
+      grid-template-columns: 1fr 100px;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 14px;
+      background: #f5f7fb;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .star-row .star-label {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .star-row .star-symbol {
+      color: var(--orange);
+      letter-spacing: 2px;
+      font-size: 16px;
+      width: 88px;
+      flex: 0 0 88px;
+    }
+
+    .star-row input {
+      border: 1px solid #d6dfef;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font: inherit;
+      color: var(--text);
+      background: #fff;
+      text-align: right;
+      width: 100%;
+      -moz-appearance: textfield;
+    }
+
+    .star-row input::-webkit-outer-spin-button,
+    .star-row input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .star-row input:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(47,102,234,0.1);
+    }
+
+    .score-result {
+      margin-top: auto;
+      padding: 22px 18px;
+      background: linear-gradient(180deg, #f7f9ff, #eef3ff);
+      border: 1px solid rgba(47,102,234,0.16);
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .score-result-label {
+      display: block;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .score-result-value {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .score-result-value.is-current { color: var(--blue); }
+    .score-result-value.is-new { color: var(--green); }
+
+    .score-result-stars {
+      margin-top: 8px;
+      letter-spacing: 4px;
+      font-size: 22px;
+      color: var(--orange);
+    }
+
+    .score-result-total {
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .score-diff-strip {
+      margin-top: 28px;
+      padding: 22px 28px;
+      border-radius: 18px;
+      background: linear-gradient(90deg, rgba(248,174,39,0.12), rgba(47,102,234,0.08));
+      border: 1px solid rgba(248,174,39,0.32);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .score-diff-text {
+      flex: 1 1 280px;
+    }
+
+    .score-diff-label {
+      display: block;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .score-diff-value {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--orange);
+      line-height: 1;
+    }
+
+    .score-diff-strip .btn {
+      flex: 0 0 auto;
+    }
+
+    .score-disclaimer {
+      margin-top: 22px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 1100px) {
+      .score-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .score-card { padding: 22px; }
+      .star-row { grid-template-columns: 1fr 90px; padding: 10px 12px; }
+      .score-result-value { font-size: 44px; }
+      .score-diff-value { font-size: 28px; }
+      .score-diff-strip { flex-direction: column; align-items: stretch; text-align: center; }
+      .score-diff-strip .btn { width: 100%; }
     }
 
     .container {
@@ -126,11 +328,37 @@
     .accent-orange { color: var(--orange); }
     .accent-red { color: var(--red); }
 
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 22px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: rgba(24, 169, 87, 0.12);
+      border: 1px solid rgba(24, 169, 87, 0.26);
+      color: #ffffff;
+      font-size: 16px;
+      max-width: 560px;
+    }
+
+    .trust-badge svg {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 22px;
+      stroke: #18a957;
+    }
+
+    .trust-badge strong {
+      color: #ffffff;
+      margin-right: 4px;
+    }
+
     .btn-row {
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
-      margin-top: 34px;
+      margin-top: 24px;
     }
 
     .btn {
@@ -1011,6 +1239,7 @@
           <a href="#loesung" data-nav-link="loesung">Lösung</a>
           <a href="#prozess" data-nav-link="prozess">Prozess</a>
           <a href="#warum-wir" data-nav-link="warum-wir">Warum wir</a>
+          <a href="#score-rechner" data-nav-link="score-rechner">Rechner</a>
         </nav>
       </div>
 
@@ -1029,6 +1258,10 @@
 </div>
           <h1>Ungerechtfertigte<br>Google-Bewertungen?<br><span class="accent-orange">Wir helfen.</span></h1>
           <p class="lead">Wir haben uns darauf spezialisiert, ungerechtfertigte Google-Bewertungen zur Löschung zu melden – im Einklang mit den Google-Richtlinien. So unterstützen wir Sie dabei, Ihre Online-Reputation zu stärken.</p>
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+            <span><strong>Bezahlung nach Erfolg.</strong> Sie zahlen ausschließlich für tatsächlich entfernte Bewertungen.</span>
+          </div>
           <div class="btn-row">
             <a class="btn btn-primary" href="#kontakt">Kostenlose Erstberatung</a>
             <a class="btn btn-secondary" href="#prozess">So funktioniert's</a>
@@ -1207,6 +1440,94 @@
             <p>Wir machen keine unrealistischen Versprechen. Wenn eine Bewertung berechtigt ist, sagen wir Ihnen das offen. Unser Ziel ist Ihr langfristiger Erfolg.</p>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section id="score-rechner" class="section">
+      <div class="container">
+        <div class="score-head">
+          <span class="eyebrow">Live-Demo</span>
+          <h2>Wie viel kann sich Ihr Google-Score <span class="accent-blue">verbessern?</span></h2>
+          <p class="text-muted">Geben Sie Ihre aktuelle Sternverteilung ein und sehen Sie, wie sich Ihr Score nach Entfernung ungerechtfertigter Bewertungen verändern könnte.</p>
+        </div>
+
+        <div class="score-grid">
+          <!-- Karte 1: Aktuelle Sternverteilung -->
+          <div class="score-card">
+            <h3>1. Aktuelle Sternverteilung</h3>
+            <p class="score-card-sub">Wie viele Bewertungen haben Sie pro Stern-Stufe?</p>
+
+            <div class="star-inputs">
+              <div class="star-row">
+                <span class="star-label"><span class="star-symbol" aria-hidden="true">★★★★★</span> 5 Sterne</span>
+                <input type="number" min="0" value="0" data-curr="5" id="curr-5" aria-label="Anzahl 5-Sterne-Bewertungen">
+              </div>
+              <div class="star-row">
+                <span class="star-label"><span class="star-symbol" aria-hidden="true">★★★★</span> 4 Sterne</span>
+                <input type="number" min="0" value="0" data-curr="4" id="curr-4" aria-label="Anzahl 4-Sterne-Bewertungen">
+              </div>
+              <div class="star-row">
+                <span class="star-label"><span class="star-symbol" aria-hidden="true">★★★</span> 3 Sterne</span>
+                <input type="number" min="0" value="0" data-curr="3" id="curr-3" aria-label="Anzahl 3-Sterne-Bewertungen">
+              </div>
+              <div class="star-row">
+                <span class="star-label"><span class="star-symbol" aria-hidden="true">★★</span> 2 Sterne</span>
+                <input type="number" min="0" value="0" data-curr="2" id="curr-2" aria-label="Anzahl 2-Sterne-Bewertungen">
+              </div>
+              <div class="star-row">
+                <span class="star-label"><span class="star-symbol" aria-hidden="true">★</span> 1 Stern</span>
+                <input type="number" min="0" value="0" data-curr="1" id="curr-1" aria-label="Anzahl 1-Stern-Bewertungen">
+              </div>
+            </div>
+
+            <div class="score-result">
+              <span class="score-result-label">Aktueller Score</span>
+              <div class="score-result-value is-current" id="score-current">—</div>
+              <div class="score-result-stars" id="score-current-stars">☆☆☆☆☆</div>
+              <div class="score-result-total" id="score-current-total">0 Bewertungen</div>
+            </div>
+          </div>
+
+          <!-- Karte 2: Zur Löschung melden -->
+          <div class="score-card">
+            <h3>2. Zur Löschung melden</h3>
+            <p class="score-card-sub">Wie viele ungerechtfertigte Bewertungen pro Stern-Stufe können entfernt werden?</p>
+
+            <div class="star-inputs">
+              <div class="star-row">
+                <span class="star-label"><span class="star-symbol" aria-hidden="true">★★★</span> 3 Sterne</span>
+                <input type="number" min="0" value="0" data-del="3" id="del-3" aria-label="3-Sterne-Bewertungen zur Meldung">
+              </div>
+              <div class="star-row">
+                <span class="star-label"><span class="star-symbol" aria-hidden="true">★★</span> 2 Sterne</span>
+                <input type="number" min="0" value="0" data-del="2" id="del-2" aria-label="2-Sterne-Bewertungen zur Meldung">
+              </div>
+              <div class="star-row">
+                <span class="star-label"><span class="star-symbol" aria-hidden="true">★</span> 1 Stern</span>
+                <input type="number" min="0" value="0" data-del="1" id="del-1" aria-label="1-Stern-Bewertungen zur Meldung">
+              </div>
+            </div>
+
+            <div class="score-result">
+              <span class="score-result-label">Neuer Score</span>
+              <div class="score-result-value is-new" id="score-new">—</div>
+              <div class="score-result-stars" id="score-new-stars">☆☆☆☆☆</div>
+              <div class="score-result-total" id="score-new-total">0 Bewertungen</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="score-diff-strip">
+          <div class="score-diff-text">
+            <span class="score-diff-label">Mögliche Verbesserung</span>
+            <div class="score-diff-value" id="score-diff">+0,00</div>
+          </div>
+          <a class="btn btn-primary" href="#kontakt">Beratung anfragen</a>
+        </div>
+
+        <p class="score-disclaimer">
+          <strong>Beispielhafte Darstellung.</strong> Die Berechnung folgt dem mathematischen Mittel der Bewertungen. Tatsächliche Ergebnisse hängen vom Einzelfall ab und können nicht zugesichert werden.
+        </p>
       </div>
     </section>
 
@@ -1601,6 +1922,7 @@
         document.getElementById('loesung'),
         document.getElementById('prozess'),
         document.getElementById('warum-wir'),
+        document.getElementById('score-rechner'),
         document.getElementById('kontakt')
       ].filter(Boolean);
 
@@ -1673,6 +1995,119 @@
       window.addEventListener('scroll', updateActiveNav, { passive: true });
       window.addEventListener('load', updateActiveNav);
       window.addEventListener('resize', updateActiveNav);
+    })();
+
+    /* ===== Score-Rechner Logik ===== */
+    (function () {
+      const currInputs = document.querySelectorAll('[data-curr]');
+      const delInputs = document.querySelectorAll('[data-del]');
+      if (!currInputs.length) return;
+
+      const currentEl = document.getElementById('score-current');
+      const currentStarsEl = document.getElementById('score-current-stars');
+      const currentTotalEl = document.getElementById('score-current-total');
+      const newEl = document.getElementById('score-new');
+      const newStarsEl = document.getElementById('score-new-stars');
+      const newTotalEl = document.getElementById('score-new-total');
+      const diffEl = document.getElementById('score-diff');
+
+      function readNumber(el) {
+        const v = parseInt(el.value, 10);
+        return isNaN(v) || v < 0 ? 0 : v;
+      }
+
+      function formatGerman(num, opts) {
+        opts = opts || {};
+        const decimals = opts.decimals != null ? opts.decimals : 2;
+        const sign = opts.signed && num >= 0 ? '+' : '';
+        return sign + num.toFixed(decimals).replace('.', ',');
+      }
+
+      function starString(score) {
+        // Sterne-Anzeige: gefüllt für ganze Sterne, halb für >=0.5, leer sonst
+        const full = Math.floor(score);
+        const half = (score - full) >= 0.5 ? 1 : 0;
+        const empty = 5 - full - half;
+        let s = '';
+        for (let i = 0; i < full; i++) s += '★';
+        if (half) s += '★';
+        for (let i = 0; i < empty; i++) s += '☆';
+        return s;
+      }
+
+      function calc() {
+        // Aktuelle Verteilung lesen
+        const curr = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+        currInputs.forEach(function (inp) {
+          const star = parseInt(inp.dataset.curr, 10);
+          curr[star] = readNumber(inp);
+        });
+        const totalCurr = curr[1] + curr[2] + curr[3] + curr[4] + curr[5];
+
+        // Aktueller Score
+        if (totalCurr === 0) {
+          currentEl.textContent = '—';
+          currentStarsEl.textContent = '☆☆☆☆☆';
+          currentTotalEl.textContent = '0 Bewertungen';
+        } else {
+          const scoreCurr = (1 * curr[1] + 2 * curr[2] + 3 * curr[3]
+                             + 4 * curr[4] + 5 * curr[5]) / totalCurr;
+          currentEl.textContent = formatGerman(scoreCurr);
+          currentStarsEl.textContent = starString(scoreCurr);
+          currentTotalEl.textContent = totalCurr.toLocaleString('de-DE')
+            + ' Bewertung' + (totalCurr === 1 ? '' : 'en');
+        }
+
+        // Lösch-Eingaben lesen, gegen vorhandene Anzahl deckeln
+        const del = { 1: 0, 2: 0, 3: 0 };
+        delInputs.forEach(function (inp) {
+          const star = parseInt(inp.dataset.del, 10);
+          const wanted = readNumber(inp);
+          del[star] = Math.min(wanted, curr[star] || 0);
+        });
+
+        // Neue Verteilung
+        const remain = {
+          1: Math.max(0, curr[1] - del[1]),
+          2: Math.max(0, curr[2] - del[2]),
+          3: Math.max(0, curr[3] - del[3]),
+          4: curr[4],
+          5: curr[5]
+        };
+        const totalNew = remain[1] + remain[2] + remain[3] + remain[4] + remain[5];
+
+        if (totalNew === 0 || totalCurr === 0) {
+          newEl.textContent = '—';
+          newStarsEl.textContent = '☆☆☆☆☆';
+          newTotalEl.textContent = totalNew.toLocaleString('de-DE')
+            + ' Bewertung' + (totalNew === 1 ? '' : 'en');
+          diffEl.textContent = '+0,00';
+          return;
+        }
+
+        const scoreNew = (1 * remain[1] + 2 * remain[2] + 3 * remain[3]
+                          + 4 * remain[4] + 5 * remain[5]) / totalNew;
+        newEl.textContent = formatGerman(scoreNew);
+        newStarsEl.textContent = starString(scoreNew);
+        newTotalEl.textContent = totalNew.toLocaleString('de-DE')
+          + ' Bewertung' + (totalNew === 1 ? '' : 'en');
+
+        const scoreCurr = (1 * curr[1] + 2 * curr[2] + 3 * curr[3]
+                           + 4 * curr[4] + 5 * curr[5]) / totalCurr;
+        const diff = scoreNew - scoreCurr;
+        diffEl.textContent = formatGerman(diff, { signed: true });
+      }
+
+      function attach(list) {
+        list.forEach(function (inp) {
+          inp.addEventListener('input', calc);
+          inp.addEventListener('change', calc);
+        });
+      }
+
+      attach(currInputs);
+      attach(delInputs);
+      calc();
     })();
   </script>
 </body>
