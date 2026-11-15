@@ -1,0 +1,245 @@
+/* sterne-manager.de – Sternkarte */
+@font-face {
+  font-family: "Marcellus";
+  src: url("fonts/Marcellus-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --nacht: #101a44;
+  --nacht-tief: #0b1233;
+  --netz: #2c3b7c;
+  --netz-hell: #4a5aa3;
+  --papier: #f2efe6;
+  --papier-tinte: #101a44;
+  --papier-neben: #3d4875;
+  --text: #f2efe6;
+  --neben: #c3cbee;
+  --gold: #f0c64a;
+  --signal: #ff6a4d;
+  --signal-tinte: #b3361f;
+  --display: "Marcellus", "Palatino Linotype", Palatino, "Book Antiqua", "Noto Serif", Georgia, serif;
+  --lauf: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Roboto, Arial, sans-serif;
+  --rand: clamp(1.25rem, 5vw, 4.5rem);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scrollbar-color: var(--netz-hell) var(--nacht-tief); }
+body {
+  margin: 0;
+  background: var(--nacht);
+  color: var(--text);
+  font: 400 1.0625rem/1.6 var(--lauf);
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--gold); color: var(--nacht); }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.5rem, 5.4vw, 4.6rem); line-height: 1.04; letter-spacing: -0.01em; }
+h2 { font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.1; }
+h3 { font-size: 1.4rem; line-height: 1.25; }
+p { margin: 0; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+a:hover { text-decoration-color: var(--gold); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.papier :focus-visible { outline-color: var(--papier-tinte); }
+.nur-vorleser { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.sprung { position: absolute; left: 1rem; top: -4rem; background: var(--gold); color: var(--nacht); padding: 0.6rem 1rem; z-index: 10; }
+.sprung:focus { top: 1rem; }
+
+.innen { width: min(100% - 2 * var(--rand), 76rem); margin-inline: auto; }
+
+/* Kopf */
+.kopf { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 1.5rem; }
+.marke { display: inline-flex; align-items: center; gap: 0.7rem; text-decoration: none; font-family: var(--display); font-size: 1.45rem; }
+.marke svg { width: 2rem; height: 2rem; flex: none; }
+.navi { display: flex; align-items: center; gap: clamp(1rem, 2.4vw, 2.2rem); font-size: 0.98rem; }
+.navi a { text-decoration: none; padding-block: 0.4rem; }
+.navi a:not(.knopf):hover { text-decoration: underline; text-decoration-color: var(--gold); }
+
+.knopf {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 3rem; padding: 0.7rem 1.35rem;
+  background: var(--gold); color: var(--nacht);
+  font: 600 1rem/1.2 var(--lauf); text-decoration: none;
+  border: 0; border-radius: 2px; cursor: pointer;
+  transition: background-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.knopf:hover { background: #ffd968; }
+.knopf:active { transform: translateY(1px); }
+.knopf-linie { background: transparent; color: var(--text); box-shadow: inset 0 0 0 1.5px var(--gold); }
+.knopf-linie:hover { background: rgba(240, 198, 74, 0.14); }
+.navi .knopf { min-height: 2.6rem; padding: 0.5rem 1.1rem; }
+
+/* Tafel I: Auftakt */
+.auftakt { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr); gap: clamp(2rem, 4vw, 4rem); align-items: center; padding-block: clamp(1.5rem, 4vw, 3.5rem) clamp(3.5rem, 7vw, 6rem); }
+.auftakt h1 em { font-style: normal; color: var(--gold); }
+.auftakt .unter { margin-top: 1.5rem; max-width: 34rem; font-size: 1.2rem; line-height: 1.5; color: var(--neben); }
+.auftakt .unter strong { color: var(--text); font-weight: 600; }
+
+.schnell { margin-top: 2.2rem; max-width: 36rem; }
+.schnell label { display: block; margin-bottom: 0.5rem; font-size: 0.98rem; color: var(--neben); }
+.schnell-zeile { display: flex; box-shadow: inset 0 0 0 1.5px var(--gold); border-radius: 2px; }
+.schnell-zeile input { flex: 1; min-width: 0; padding: 0.95rem 1rem; background: transparent; border: 0; color: var(--text); font: inherit; caret-color: var(--gold); }
+.schnell-zeile input::placeholder { color: #98a3d6; }
+.schnell-zeile input:focus-visible { outline-offset: -4px; }
+.schnell-zeile .knopf { border-radius: 0 2px 2px 0; white-space: nowrap; }
+.schnell .klein { margin-top: 0.7rem; font-size: 0.95rem; color: var(--neben); }
+
+.tafel { position: relative; }
+.karte { display: block; width: 100%; height: auto; overflow: visible; }
+.karte .netz { fill: none; stroke: var(--netz); stroke-width: 1; }
+.karte .netz-rand { fill: none; stroke: var(--netz-hell); stroke-width: 1.2; }
+.karte .teilung { fill: none; stroke: var(--netz-hell); stroke-width: 8; stroke-dasharray: 1 10.47; }
+.karte .bild { fill: none; stroke: var(--papier); stroke-width: 1; opacity: 0.42; }
+.karte .stern circle.kern { fill: var(--gold); transition: fill-opacity 0.6s var(--ease), stroke-opacity 0.6s var(--ease); }
+.karte .stern .strahl { stroke: var(--gold); stroke-width: 1; opacity: 0.7; }
+.karte .stern .ring { fill: none; stroke: var(--signal); stroke-width: 2; }
+.karte .stern .strich { stroke: var(--signal); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 40; stroke-dashoffset: 40; transition: stroke-dashoffset 0.5s var(--ease); }
+.karte .stern.gemeldet circle.kern { stroke: var(--gold); stroke-width: 1; stroke-opacity: 0; }
+.karte[data-zustand="entfernt"] .stern.gemeldet circle.kern { fill-opacity: 0; stroke-opacity: 0.55; stroke-dasharray: 2 2; }
+.karte[data-zustand="entfernt"] .stern.gemeldet .strich { stroke-dashoffset: 0; }
+.karte text { font: 500 11px var(--lauf); letter-spacing: 0.14em; fill: var(--neben); text-transform: uppercase; }
+
+.ablesung { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 1rem 2rem; margin-top: 1.2rem; }
+.ablesung dl { display: flex; gap: clamp(1.2rem, 3vw, 2.5rem); margin: 0; }
+.ablesung dt { font-size: 0.92rem; color: var(--neben); white-space: nowrap; }
+a[href^="mailto:"] { white-space: nowrap; }
+.ablesung dd { margin: 0; font-family: var(--display); font-size: clamp(2.6rem, 5vw, 3.8rem); line-height: 1; font-variant-numeric: tabular-nums; }
+.ablesung dd.gold { color: var(--gold); }
+.legende { display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; margin: 1.1rem 0 0; padding: 0; list-style: none; font-size: 0.92rem; color: var(--neben); }
+.legende li { display: inline-flex; align-items: center; gap: 0.45rem; }
+.legende svg { width: 1.1rem; height: 1.1rem; flex: none; }
+.hinweis { margin-top: 0.9rem; font-size: 0.92rem; color: var(--neben); max-width: 40rem; }
+
+/* Abschnitte */
+.abschnitt { padding-block: clamp(4rem, 9vw, 7.5rem); }
+.abschnitt > .innen > h2 { max-width: 22ch; }
+.abschnitt .vorspann { margin-top: 1.1rem; max-width: 40rem; font-size: 1.15rem; color: var(--neben); }
+.linie-oben { border-top: 1px solid var(--netz); }
+.anschluss { padding-top: 0; }
+
+/* Ablauf als Sternbild */
+.ablauf { position: relative; list-style: none; margin: clamp(2.5rem, 5vw, 4rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 3rem); counter-reset: schritt; }
+.ablauf::before { content: ""; position: absolute; left: 0.55rem; right: 12%; top: 0.55rem; border-top: 1px solid var(--netz-hell); }
+.ablauf li { position: relative; padding-top: 2.6rem; counter-increment: schritt; }
+.ablauf li::before { content: ""; position: absolute; left: 0; top: 0; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 6px var(--nacht); }
+.ablauf h3::before { content: counter(schritt) ". "; color: var(--gold); }
+.ablauf p { margin-top: 0.6rem; color: var(--neben); }
+
+/* Papier: Legende des Atlas */
+.papier { background: var(--papier); color: var(--papier-tinte); scrollbar-color: auto; }
+.papier ::selection { background: var(--papier-tinte); color: var(--papier); }
+.papier .vorspann, .papier .neben { color: var(--papier-neben); }
+.papier a:hover { text-decoration-color: var(--signal-tinte); }
+
+.zwei { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(2rem, 5vw, 5rem); margin-top: clamp(2.5rem, 5vw, 3.5rem); }
+.zwei h3 { display: flex; align-items: center; gap: 0.6rem; padding-bottom: 0.8rem; border-bottom: 1.5px solid var(--papier-tinte); }
+.zwei h3 svg { width: 1.35rem; height: 1.35rem; flex: none; }
+.zwei ul { list-style: none; margin: 0; padding: 0; }
+.zwei li { padding-block: 0.9rem; border-bottom: 1px solid #cfcab9; }
+.merksatz { margin-top: 2.5rem; max-width: 44rem; font-family: var(--display); font-size: 1.5rem; line-height: 1.35; }
+
+.preise { width: 100%; margin-top: clamp(2rem, 4vw, 3rem); border-collapse: collapse; font-size: 1.15rem; }
+.preise th, .preise td { padding: 1.05rem 0; border-top: 1px solid #cfcab9; text-align: left; font-weight: 400; vertical-align: baseline; }
+.preise tr:first-child th, .preise tr:first-child td { border-top: 1.5px solid var(--papier-tinte); }
+.preise tr:last-child th, .preise tr:last-child td { border-bottom: 1.5px solid var(--papier-tinte); }
+.preise td { text-align: right; white-space: nowrap; font-family: var(--display); font-size: 1.5rem; font-variant-numeric: tabular-nums; padding-left: 1.5rem; }
+.preise .haupt th { font-weight: 600; }
+.preise .haupt td { font-size: clamp(2rem, 4vw, 2.8rem); }
+.preise-fuss { margin-top: 1.4rem; max-width: 44rem; color: var(--papier-neben); }
+
+/* Rechner */
+.rechner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.9fr); gap: clamp(1.5rem, 3.5vw, 3.5rem); margin-top: clamp(2.5rem, 5vw, 3.5rem); align-items: start; }
+.rechner fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.rechner legend { padding: 0 0 0.8rem; font-family: var(--display); font-size: 1.35rem; width: 100%; border-bottom: 1px solid var(--netz-hell); }
+.feldzeile { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 0.65rem; border-bottom: 1px solid var(--netz); }
+.feldzeile label { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--neben); }
+.feldzeile .punkte { display: inline-flex; gap: 3px; width: 4.4rem; }
+.feldzeile .punkte i { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--gold); }
+.feldzeile input { width: 6rem; min-height: 2.75rem; padding: 0.4rem 0.6rem; text-align: right; background: var(--nacht-tief); color: var(--text); border: 1px solid var(--netz-hell); border-radius: 2px; font: inherit; font-variant-numeric: tabular-nums; caret-color: var(--gold); }
+.feldzeile input:hover { border-color: var(--neben); }
+.ergebnis { padding: 1.6rem; box-shadow: inset 0 0 0 1px var(--netz-hell); border-radius: 2px; }
+.ergebnis dl { margin: 0; display: grid; gap: 1.2rem; }
+.ergebnis dt { font-size: 0.95rem; color: var(--neben); }
+.ergebnis dd { margin: 0.1rem 0 0; font-family: var(--display); font-size: 3.2rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.ergebnis dd small { display: block; margin-top: 0.35rem; font: 400 0.95rem var(--lauf); color: var(--neben); }
+.ergebnis dd.gold { color: var(--gold); }
+.ergebnis .leer { color: var(--neben); font-size: 1rem; }
+
+/* Fragen */
+.fragen { margin-top: clamp(2rem, 4vw, 3rem); max-width: 50rem; border-top: 1.5px solid var(--papier-tinte); }
+.fragen details { border-bottom: 1px solid #cfcab9; }
+.fragen summary { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; padding: 1.15rem 0; cursor: pointer; list-style: none; font-family: var(--display); font-size: 1.35rem; line-height: 1.3; }
+.fragen summary::-webkit-details-marker { display: none; }
+.fragen summary svg { width: 1.1rem; height: 1.1rem; flex: none; transition: transform 0.3s var(--ease); }
+.fragen details[open] summary svg { transform: rotate(45deg); }
+.fragen details p { padding: 0 2.6rem 1.3rem 0; max-width: 42rem; color: var(--papier-neben); }
+
+/* Anfrage */
+.anfrage { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+.anfrage .vorspann a { color: var(--text); }
+.formular { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem 1.4rem; }
+.formular .voll { grid-column: 1 / -1; }
+.formular label { display: block; margin-bottom: 0.4rem; font-size: 0.98rem; }
+.formular label span { color: var(--neben); }
+.formular input, .formular textarea { width: 100%; min-height: 3rem; padding: 0.75rem 0.9rem; background: var(--nacht-tief); color: var(--text); border: 1px solid var(--netz-hell); border-radius: 2px; font: inherit; caret-color: var(--gold); }
+.formular textarea { min-height: 7.5rem; resize: vertical; }
+.formular input:hover, .formular textarea:hover { border-color: var(--neben); }
+.formular input::placeholder, .formular textarea::placeholder { color: #98a3d6; }
+.formular .hilfe { margin-top: 0.4rem; font-size: 0.92rem; color: var(--neben); }
+.formular .honig { position: absolute; left: -200vw; }
+.formular .abschluss { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; }
+.formular .abschluss p { flex: 1 1 16rem; font-size: 0.92rem; color: var(--neben); }
+
+/* Fuss */
+.fuss { border-top: 1px solid var(--netz); padding-block: 2.5rem 3rem; font-size: 0.98rem; color: var(--neben); }
+.fuss .innen { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.2rem 2.5rem; align-items: center; }
+.fuss nav { display: flex; flex-wrap: wrap; gap: 0.6rem 1.8rem; }
+.fuss a { color: var(--text); }
+
+/* Unterseiten */
+.text-seite { padding-block: clamp(2rem, 5vw, 4rem) clamp(4rem, 8vw, 6rem); }
+.text-seite .innen { max-width: 46rem; }
+.text-seite h1 { font-size: clamp(2.2rem, 4.4vw, 3.4rem); margin-bottom: 2rem; }
+.text-seite h2 { font-size: 1.55rem; margin: 2.4rem 0 0.7rem; }
+.text-seite p, .text-seite ul { margin: 0 0 1rem; color: var(--neben); }
+.text-seite ul { padding-left: 1.2rem; }
+.text-seite strong { color: var(--text); font-weight: 600; }
+.text-seite a { color: var(--text); overflow-wrap: anywhere; }
+.danke { min-height: 60vh; display: grid; align-content: center; }
+
+/* Schmal */
+@media (max-width: 62rem) {
+  .auftakt { grid-template-columns: 1fr; }
+  .tafel { max-width: 34rem; }
+  .rechner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rechner .ergebnis { grid-column: 1 / -1; }
+  .ergebnis dl { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .anfrage { grid-template-columns: 1fr; }
+  .ablauf { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 2.5rem; }
+  .ablauf::before { display: none; }
+}
+@media (max-width: 44rem) {
+  body { font-size: 1rem; }
+  .navi a:not(.knopf) { display: none; }
+  .schnell-zeile { flex-direction: column; box-shadow: none; gap: 0.6rem; }
+  .schnell-zeile input { box-shadow: inset 0 0 0 1.5px var(--gold); border-radius: 2px; }
+  .schnell-zeile .knopf { border-radius: 2px; }
+  .ablesung { grid-template-columns: 1fr; }
+  .ablesung .knopf { width: 100%; }
+  .zwei, .rechner, .formular { grid-template-columns: 1fr; }
+  .ergebnis dl { grid-template-columns: 1fr; }
+  .ablauf { grid-template-columns: 1fr; }
+  .ablauf::before { display: block; left: 0.55rem; right: auto; top: 0.55rem; bottom: 4rem; border-top: 0; border-left: 1px solid var(--netz-hell); }
+  .ablauf li { padding: 0 0 0 2.4rem; }
+  .preise { font-size: 1rem; }
+  .preise td { font-size: 1.25rem; }
+  .fragen details p { padding-right: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
